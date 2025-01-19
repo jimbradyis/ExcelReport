@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Button Name="ExcelReportButton" Content="Excel Report" Width="100" Height="30" Click="ExcelReportButton_Click"/>
     </Grid>
 </Window>

@@ -1,24 +1,27 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using ExcelReport.Services;  // for HollingerReportService
+using Microsoft.Extensions.DependencyInjection; // for GetRequiredService
+using System.Windows; // for MessageBox
 
 namespace ExcelReport
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private readonly HollingerReportService _reportService;
+
+        // We'll inject the service from the DI container:
+        public MainWindow(HollingerReportService reportService)
         {
             InitializeComponent();
+            _reportService = reportService;
+        }
+
+        private void ExcelReportButton_Click(object sender, RoutedEventArgs e)
+        {
+            // We'll just call the service and pass a file path:
+            string filePath = @"C:\HollingerReports\HollingerBoxSummery.xlsx";
+            _reportService.BuildAndSaveCompleteWorkbook(filePath);
+            // _reportService.BuildAndSaveCombinedWorkbook(filePath);
+            MessageBox.Show($"Report created at:\n{filePath}");
         }
     }
 }
