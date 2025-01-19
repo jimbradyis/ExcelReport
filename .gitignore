@@ -1,0 +1,26 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio cache
+.vs/
+
+# Visual Studio user-specific files
+*.csproj.user
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Other possible user-specific or tool-specific folders
+.vscode/
+.history/
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Other
+*.log
+*.tmp
